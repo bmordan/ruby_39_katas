@@ -1,10 +1,5 @@
-require 'rspec'
-require_relative './questions'
 
-RSpec.configure do |config|
-  config.color = true
-  config.formatter = :documentation
-end
+require_relative './questions'
 
 describe 'the Friday test :)' do
   
@@ -170,8 +165,8 @@ describe 'the Friday test :)' do
     a = check_a_string_for_special_characters 'ABCdef123'
     b = check_a_string_for_special_characters 'ABC@def123!'
 
-    expect(a).to be_false
-    expect(b).to be_true
+    expect(a).to eq false
+    expect(b).to eq true
   end
 
   specify 'get_upper_limit_of' do
@@ -183,8 +178,8 @@ describe 'the Friday test :)' do
     a = is_a_3_dot_range? 1..20
     b = is_a_3_dot_range? 1...20
 
-    expect(a).to be_false
-    expect(b).to be_true
+    expect(a).to be false
+    expect(b).to be true
   end
 
   specify 'square_root_of' do
@@ -207,8 +202,8 @@ describe 'the Friday test :)' do
     a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
     b = is_a_2014_bank_holiday?(Time.new(2014, 8, 26))
 
-    expect(a).to be_true
-    expect(b).to be_false
+    expect(a).to be true
+    expect(b).to be false
   end
 
   specify 'your_birthday_is_on_a_friday_in_the_year' do
@@ -220,4 +215,11 @@ describe 'the Friday test :)' do
     n = count_words_of_each_length_in_a_file('lorem.txt') || []
     expect(Hash[n.sort]).to eq({1=>1, 2=>5, 3=>7, 4=>12, 5=>14, 6=>4, 7=>8, 8=>6, 9=>6, 10=>2, 11=>2, 12=>3}) 
   end
+
+#   specify 'ninety_nine_bottles_of_beer' do
+#     a = ninety_nine_bottles_of_beer
+#     expect(a).to eq("99 bottles of beer on the wall, 99 bottles of beer.
+# Take one down and pass it around, 98 bottles of beer on the wall.")
+#   end
+
 end
